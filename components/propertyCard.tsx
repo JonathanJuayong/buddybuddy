@@ -15,6 +15,7 @@ interface PropertyCardProps {
   bedroom: number,
   bathroom: number,
   tenants: number,
+  withUtilities?: boolean
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
@@ -26,7 +27,8 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   address,
   bedroom,
   bathroom,
-  tenants
+  tenants,
+  withUtilities
 
 }) => {
   const [favorite, setFavorite] = useState(false);
@@ -62,7 +64,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       >
         <Badge
           position="absolute"
-          bottom="1em"
+          bottom="1.5em"
           left="1em"
           px="10px"
           py="5px"
@@ -103,14 +105,18 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           >
             PHP{monthlyRent}.00/month
           </Text>
-          <HStack
-            align="baseline"
-            justifySelf="end"
-            color="green !important"
-          >
-            <FaCheckCircle />
-            <Text>with utilities</Text>
-          </HStack>
+          {withUtilities && 
+            (
+              <HStack
+                align="baseline"
+                justifySelf="end"
+                color="green !important"
+              >
+                <FaCheckCircle />
+                <Text>with utilities</Text>
+              </HStack>
+            )
+          }
         </Grid>
         <HStack align="baseline">
           <BsBuilding />
@@ -118,7 +124,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </HStack>
         <HStack align="baseline">
           <FaMapMarkerAlt />
-          <Text maxW="20rem" isTruncated>{address}</Text>
+          <Text maxW="30ch" isTruncated>{address}</Text>
         </HStack>
         <HStack spacing="2em">
           <HStack>
@@ -144,4 +150,4 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   )
 }
 
-export { PropertyCard };
+export default PropertyCard;

@@ -1,19 +1,16 @@
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Container, Grid, GridItem } from '@chakra-ui/react'
+import { FiltersContainer, PropertyCardContainer } from '../components'
 import Head from 'next/head'
-import { FilterSidebar, PropertyCardContainer } from '../components'
 
 const Home: React.FC = () => {
   return (
     <>
-      <FilterSidebar />
-      <Grid
-        gap="1em"
-        gridTemplateColumns={["1fr",,,"350px 1fr"]}
+      <Container
+        maxW="6xl"
       >
-        {/* GridItem for padding purposes only */}
-        <GridItem />
+        <FiltersContainer />
         <PropertyCardContainer />
-      </Grid>
+      </Container>
     </>
   )
 }

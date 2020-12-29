@@ -1,5 +1,5 @@
-import { Container, Grid } from "@chakra-ui/react"
-import { PropertyCard } from "./propertyCard"
+import { Grid } from "@chakra-ui/react"
+import PropertyCard from "./propertyCard"
 import { PropertyType } from './';
 
 const PropertyCardContainer: React.FC = () => {
@@ -7,12 +7,12 @@ const PropertyCardContainer: React.FC = () => {
   const arr = [...Array(20)];
   return (
     <Grid
-    justifyContent="center"
-      gridTemplateColumns={["350px",,,"repeat(auto-fill, minmax(350px, 1fr))"]} // chakra ui shorthand for breakpoints
-      gap="3em"
-      px="2em"
+      justifyContent="center"
+      gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+      gap="2em"
+      py="2em"
     >
-      {arr.map((item, i) => (
+      {arr.map((_, i) => (
         <PropertyCard
           key={i}
           id={`${i}`}
@@ -24,6 +24,7 @@ const PropertyCardContainer: React.FC = () => {
           bedroom={2}
           bathroom={2}
           tenants={4}
+          withUtilities
         />
       ))}
     </Grid>

@@ -1,5 +1,4 @@
-export { FilterSidebar } from './filterSidebar';
-export { PropertyCard } from './propertyCard';
+export { FiltersContainer } from './filtersContainer';
 export { PropertyCardContainer } from './propertyCardContainer';
 
 export enum PropertyType {
