@@ -20,7 +20,7 @@ export interface DefaultState {
 
 export const defaultState: DefaultState = {
   filters: {
-    city: "makati",
+    city: "",
     rent: {
       min: 10000,
       max: 50000,
@@ -30,10 +30,10 @@ export const defaultState: DefaultState = {
       bathrooms: 1,
       tenants: 1,
       withUtilities: false,
-      type: "apt",
+      type: "",
     },
     roommates: {
-      gender: "male",
+      gender: "",
     }
   }
 }

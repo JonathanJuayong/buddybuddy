@@ -3,6 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import Reference from "yup/lib/Reference";
 import { SelectOptions, MyCustomNumberInput, MyCustomSelect } from "./customFields";
 import { defaultState } from './context';
+import { useContext } from 'react';
+import { GlobalContext } from './context';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -25,24 +27,31 @@ const validationSchema = yup.object({
 
 const Filters: React.FC = () => {
   const {filters: initialValues} = defaultState;
+  const {context, setContext} = useContext(GlobalContext);
   const cityOptions: Array<SelectOptions> = [
+    {label: "All", value: ""},
     {label: "Makati", value: "makati"},
     {label: "Ortigas", value: "ortigas"},
     {label: "BGC", value: "BGC"},
     {label: "QC", value: "QC"},
   ]
   const roomTypes: Array<SelectOptions> = [
+    {label: "All", value: ""},
     {label: "Apartment", value: "apt"},
     {label: "Condo Unit", value: "condo"},
     {label: "Dormitory", value: "dorm"},
     {label: "House", value: "house"},
   ]
   const genders: Array<SelectOptions> = [
+    {label: "All", value: ""},
     {label: "Male", value: "male"},
     {label: "Female", value: "female"},
   ]
   const handleSubmitFilter = (values) => {
-    console.log(values);
+    setContext( prev => ({
+      ...prev,
+      filters: {...values}
+    }))
   }
   return (
     <Formik
@@ -119,7 +128,8 @@ const Filters: React.FC = () => {
                 Search
               </Button>
             </VStack>
-            <pre>values: {JSON.stringify(values, null, 2)}</pre>
+            {/* <pre>values: {JSON.stringify(values, null, 2)}</pre> */}
+            <pre>Context: {JSON.stringify(context, null, 2)}</pre>
             {/* <pre>errors: {JSON.stringify(errors, null, 2)}</pre> */}
           </Form>
         )

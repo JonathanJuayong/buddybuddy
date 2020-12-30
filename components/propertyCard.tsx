@@ -120,7 +120,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </Grid>
         <HStack align="baseline">
           <BsBuilding />
-          <Text>{capitalize(city)} City</Text>
+          <Text>{capitalize(city)}</Text>
         </HStack>
         <HStack align="baseline">
           <FaMapMarkerAlt />

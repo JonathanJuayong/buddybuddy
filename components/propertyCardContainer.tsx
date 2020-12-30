@@ -3,17 +3,18 @@ import PropertyCard from "./propertyCard"
 import { properties } from '../dummyData';
 import { useContext } from 'react';
 import { GlobalContext } from './context';
+import { filterProperties } from "../utils";
 
 const PropertyCardContainer: React.FC = () => {
-  const {context, setContext} = useContext(GlobalContext);
+  const {context: {filters}} = useContext(GlobalContext);
   return (
     <Grid
       justifyContent="center"
-      gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+      gridTemplateColumns="repeat(auto-fit, minmax(300px, 300px))"
       gap="2em"
       py="2em"
     >
-      {properties.map((property) => (
+      {filterProperties(properties, filters).map((property) => (
         <PropertyCard
           key={property.id}
           id={`${property.id}`}
