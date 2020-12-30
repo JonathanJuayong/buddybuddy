@@ -6,10 +6,9 @@ interface MyCustomNumberInputProps {
   label: string,
   max: number,
   min: number,
-  errorHandler?: (error: string) => void
 }
 
-const MyCustomNumberInput: React.FC<MyCustomNumberInputProps> = ({name, label, max, min, errorHandler}) => {
+const MyCustomNumberInput: React.FC<MyCustomNumberInputProps> = ({name, label, max, min}) => {
   return (
     <Field name={name}>
       {({field, form}) => {
@@ -20,7 +19,6 @@ const MyCustomNumberInput: React.FC<MyCustomNumberInputProps> = ({name, label, m
             return;
           }
         }, form.errors);
-        if (errorHandler) errorHandler(errorMesage);
         return (
           <FormControl id={name} isInvalid={!!errorMesage}>
             <FormLabel htmlFor={name}>{label}</FormLabel>

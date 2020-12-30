@@ -1,19 +1,19 @@
 import { Badge, Box, Grid, Image, IconButton, useToast, toast, Text, HStack, theme, Button } from "@chakra-ui/react";
-import { PropertyType } from './';
 import { FaHeart, FaRegHeart, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import { BiBed, BiBath, BiUser } from 'react-icons/bi';
 import { BsBuilding } from 'react-icons/bs';
 import { useState } from "react";
+import { capitalize } from "../utils";
 
 interface PropertyCardProps {
   id: string,
   imageUrl: string,
-  type: PropertyType,
+  type: string,
   monthlyRent: number,
   city: string,
   address: string,
-  bedroom: number,
-  bathroom: number,
+  bedrooms: number,
+  bathrooms: number,
   tenants: number,
   withUtilities?: boolean
 }
@@ -25,8 +25,8 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   monthlyRent,
   city,
   address,
-  bedroom,
-  bathroom,
+  bedrooms,
+  bathrooms,
   tenants,
   withUtilities
 
@@ -120,7 +120,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </Grid>
         <HStack align="baseline">
           <BsBuilding />
-          <Text>{city} City</Text>
+          <Text>{capitalize(city)} City</Text>
         </HStack>
         <HStack align="baseline">
           <FaMapMarkerAlt />
@@ -129,11 +129,11 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <HStack spacing="2em">
           <HStack>
             <BiBath />
-            <Text>{bathroom}</Text>
+            <Text>{bathrooms}</Text>
           </HStack>
           <HStack>
             <BiBed />
-            <Text>{bedroom}</Text>
+            <Text>{bedrooms}</Text>
           </HStack>
           <HStack>
             <BiUser />

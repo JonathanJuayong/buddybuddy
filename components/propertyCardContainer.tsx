@@ -1,10 +1,11 @@
 import { Grid } from "@chakra-ui/react"
 import PropertyCard from "./propertyCard"
-import { PropertyType } from './';
+import { properties } from '../dummyData';
+import { useContext } from 'react';
+import { GlobalContext } from './context';
 
 const PropertyCardContainer: React.FC = () => {
-  const randomHouse = () => Math.floor(Math.random()*4) + 1;
-  const arr = [...Array(20)];
+  const {context, setContext} = useContext(GlobalContext);
   return (
     <Grid
       justifyContent="center"
@@ -12,19 +13,19 @@ const PropertyCardContainer: React.FC = () => {
       gap="2em"
       py="2em"
     >
-      {arr.map((_, i) => (
+      {properties.map((property) => (
         <PropertyCard
-          key={i}
-          id={`${i}`}
-          imageUrl={`/pic/house${randomHouse()}.png`}
-          type={PropertyType.condo}
-          monthlyRent={12000}
-          city="Makati"
-          address="#4 kindness st multinational village paranaque city#4 kindness st multinational village paranaque city#4 kindness st multinational village paranaque city#4 kindness st multinational village paranaque city#4 kindness st multinational village paranaque city#4 kindness st multinational village paranaque city"
-          bedroom={2}
-          bathroom={2}
-          tenants={4}
-          withUtilities
+          key={property.id}
+          id={`${property.id}`}
+          imageUrl={property.imageUrl}
+          type={property.type}
+          monthlyRent={property.monthlyRent}
+          city={property.city}
+          address={property.address}
+          bedrooms={property.bedrooms}
+          bathrooms={property.bathrooms}
+          tenants={property.tenants}
+          withUtilities={property.withUtilities}
         />
       ))}
     </Grid>
