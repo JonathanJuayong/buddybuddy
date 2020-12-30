@@ -128,9 +128,6 @@ const Filters: React.FC = () => {
                 Search
               </Button>
             </VStack>
-            {/* <pre>values: {JSON.stringify(values, null, 2)}</pre> */}
-            <pre>Context: {JSON.stringify(context, null, 2)}</pre>
-            {/* <pre>errors: {JSON.stringify(errors, null, 2)}</pre> */}
           </Form>
         )
       }}
