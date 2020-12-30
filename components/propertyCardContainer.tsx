@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react"
+import { Grid, Text } from "@chakra-ui/react"
 import PropertyCard from "./propertyCard"
 import { properties } from '../dummyData';
 import { useContext } from 'react';
@@ -7,6 +7,7 @@ import { filterProperties } from "../utils";
 
 const PropertyCardContainer: React.FC = () => {
   const {context: {filters}} = useContext(GlobalContext);
+  const filtered = filterProperties(properties, filters);
   return (
     <Grid
       justifyContent="center"
@@ -14,7 +15,7 @@ const PropertyCardContainer: React.FC = () => {
       gap="2em"
       py="2em"
     >
-      {filterProperties(properties, filters).map((property) => (
+      {filtered.length !== 0 ? filtered.map(property => (
         <PropertyCard
           key={property.id}
           id={`${property.id}`}
@@ -28,7 +29,10 @@ const PropertyCardContainer: React.FC = () => {
           tenants={property.tenants}
           withUtilities={property.withUtilities}
         />
-      ))}
+      )) : (
+        <Text>Sorry, no properties found</Text>
+      )
+    }
     </Grid>
   )
 }
