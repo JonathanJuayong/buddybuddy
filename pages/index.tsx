@@ -1,8 +1,10 @@
 import { Container } from '@chakra-ui/react'
-import { FiltersContainer, PropertyCardContainer, RoommateCardContainer } from '../components'
+import { FiltersContainer, MainCardContainer } from '../components'
+import { useState } from 'react';
 import Head from 'next/head'
 
 const Home: React.FC = () => {
+  const [openTab, setOpenTab] = useState("rooms")
   return (
     <>
       <Head>
@@ -12,8 +14,7 @@ const Home: React.FC = () => {
         maxW="6xl"
       >
         <FiltersContainer />
-        <PropertyCardContainer />
-        <RoommateCardContainer />        
+        <MainCardContainer />
       </Container>
     </>
   )
