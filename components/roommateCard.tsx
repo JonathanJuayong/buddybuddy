@@ -31,17 +31,27 @@ const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl,
           size="2xl"
           src={imageUrl}
         />
-        <Badge
+        <HStack
           position="absolute"
           bottom="-10px"
-          left="1em"
-          px="10px"
-          py="5px"
-          borderRadius="50px"
-          colorScheme="green"
         >
-          PHP {budget}/month
-        </Badge>
+          <Badge
+            px="10px"
+            py="5px"
+            borderRadius="50px"
+            colorScheme="green"
+          >
+            PHP {budget}/month
+          </Badge>
+          <Badge
+            px="10px"
+            py="5px"
+            borderRadius="50px"
+            colorScheme="green"
+          >
+            {preferredLocation}
+          </Badge>
+        </HStack>
       </Center>
       <Grid
         gap=".3em"
