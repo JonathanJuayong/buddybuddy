@@ -23,7 +23,7 @@ const RoommateCardContainer: React.FC = () => {
         users.map((result, i) => (
           <RoommateCard
             key={i}
-            name={`${result.name.first} ${result.name.last}`}
+            name={result.name.first}
             age={result.dob.age}
             gender={result.gender}
             imageUrl={result.picture.large}
