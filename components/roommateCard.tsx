@@ -16,7 +16,6 @@ interface RoommateCardProps {
 const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl, budget, preferredLocation, bioSnippet}) => {
   return (
     <VStack
-      gap="1em"
       color="grey"
     >
       <Center
@@ -33,7 +32,7 @@ const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl,
         />
         <HStack
           position="absolute"
-          bottom="-10px"
+          bottom="-15px"
         >
           <Badge
             px="10px"

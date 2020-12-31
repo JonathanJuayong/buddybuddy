@@ -57,14 +57,14 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   }
   return (
     <Grid
-      gap="1em"
+      gap=".8em"
     >
       <Box
         position="relative"
       >
         <Badge
           position="absolute"
-          bottom="1.5em"
+          bottom="-15px"
           left="1em"
           px="10px"
           py="5px"
@@ -75,10 +75,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </Badge>
         <IconButton
           position="absolute"
-          bottom="1em"
+          bottom="-20px"
           right="1em"
           borderRadius="50%"
-          variant={favorite ? "solid" : "outline"}
           border="2px solid"
           colorScheme="pink"
           aria-label="favorite"
@@ -94,6 +93,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       <Grid
         color="grey"
         gap=".2em"
+        p="1em"
       >
         <Grid
           gridAutoFlow="column"
@@ -125,7 +125,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </HStack>
         <HStack align="baseline">
           <FaMapMarkerAlt />
-          <Text maxW="30ch" isTruncated>{address}</Text>
+          <Text maxW="27ch" isTruncated>{address}</Text>
         </HStack>
         <HStack spacing="2em">
           <HStack>
