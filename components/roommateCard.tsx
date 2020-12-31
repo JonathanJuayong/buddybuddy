@@ -75,7 +75,7 @@ const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl,
           <GoPrimitiveDot />
           <Text>{capitalize(gender)}</Text>
         </HStack>
-        <Text maxW="27ch" isTruncated>{bioSnippet}</Text>
+        <Text maxW="30ch" isTruncated>{bioSnippet}</Text>
       </Grid>
       <Button
         w="100%"
