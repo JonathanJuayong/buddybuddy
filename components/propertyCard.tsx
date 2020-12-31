@@ -86,6 +86,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           onClick={handleSetFavorite}
         />
         <Image
+          borderRadius="10px 10px 0 0"
           w="100%"
           src={imageUrl}
         />
@@ -142,6 +143,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </HStack>
       </Grid>
       <Button
+        borderRadius="0 0 10px 10px"
         colorScheme="blue"
       >
         View Property
