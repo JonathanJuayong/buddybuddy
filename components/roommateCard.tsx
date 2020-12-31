@@ -49,10 +49,17 @@ const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl,
         alignContent="start"
         p="1em"
       >
-        <Text fontWeight="700" color={theme.colors.gray[700]}>{name}</Text>
+        <Text
+          fontSize="1.2rem"
+          fontWeight="700"
+          color={theme.colors.gray[700]}
+        >
+          {name}
+        </Text>
         <HStack
           as={Grid}
           justifyItems="baseline"
+          fontSize="1rem"
         >
           <Text>{age} years old</Text>
           <GoPrimitiveDot />
