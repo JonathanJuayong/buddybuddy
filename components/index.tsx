@@ -1,4 +1,4 @@
 export { FiltersContainer } from './filtersContainer';
-export { PropertyCardContainer } from './propertyCardContainer';
+export { RoomsCardContainer } from './roomsCardContainer';
 export { RoommateCardContainer } from './roommateCardContainer';
 export { MainCardContainer } from './mainCardContainer';

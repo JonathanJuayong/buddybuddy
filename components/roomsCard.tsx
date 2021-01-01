@@ -5,7 +5,7 @@ import { BsBuilding } from 'react-icons/bs';
 import { useState } from "react";
 import { capitalize } from "../utils";
 
-interface PropertyCardProps {
+interface RoomsCardProps {
   id: string,
   imageUrl: string,
   type: string,
@@ -18,7 +18,7 @@ interface PropertyCardProps {
   withUtilities?: boolean
 }
 
-const PropertyCard: React.FC<PropertyCardProps> = ({
+const RoomsCard: React.FC<RoomsCardProps> = ({
   id,
   imageUrl,
   type,
@@ -152,4 +152,4 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   )
 }
 
-export default PropertyCard;
+export default RoomsCard;

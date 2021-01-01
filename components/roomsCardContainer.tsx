@@ -1,11 +1,11 @@
 import { Grid, Text } from "@chakra-ui/react"
-import PropertyCard from "./propertyCard"
+import PropertyCard from "./roomsCard"
 import { properties } from '../dummyData';
 import { useContext } from 'react';
 import { GlobalContext } from './context';
 import { filterProperties } from "../utils";
 
-const PropertyCardContainer: React.FC = () => {
+const RoomsCardContainer: React.FC = () => {
   const {context: {filters}} = useContext(GlobalContext);
   const filtered = filterProperties(properties, filters);
   return (
@@ -37,4 +37,4 @@ const PropertyCardContainer: React.FC = () => {
   )
 }
 
-export { PropertyCardContainer };
+export { RoomsCardContainer };

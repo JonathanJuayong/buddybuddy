@@ -1,5 +1,5 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
-import { PropertyCardContainer, RoommateCardContainer } from './';
+import { RoomsCardContainer, RoommateCardContainer } from './';
 
 interface MainCardContainerProps {
   tabIndex: number,
@@ -14,7 +14,7 @@ const MainCardContainer: React.FC<MainCardContainerProps> = ({tabIndex, handleTa
         <Tab>Roommates</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel><PropertyCardContainer /></TabPanel>
+        <TabPanel><RoomsCardContainer /></TabPanel>
         <TabPanel><RoommateCardContainer /></TabPanel>
       </TabPanels>
     </Tabs>
