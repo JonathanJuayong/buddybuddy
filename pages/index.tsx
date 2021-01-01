@@ -4,7 +4,10 @@ import { useState } from 'react';
 import Head from 'next/head'
 
 const Home: React.FC = () => {
-  const [openTab, setOpenTab] = useState("rooms")
+  const [tabIndex, setTabIndex] = useState(0);
+  const handleTabChange = (index) => {
+    setTabIndex(index);
+  }
   return (
     <>
       <Head>
@@ -13,8 +16,13 @@ const Home: React.FC = () => {
       <Container
         maxW="6xl"
       >
-        <FiltersContainer />
-        <MainCardContainer />
+        <FiltersContainer
+          tabIndex={tabIndex}
+        />
+        <MainCardContainer
+          tabIndex={tabIndex}
+          handleTabChange={handleTabChange}
+        />
       </Container>
     </>
   )

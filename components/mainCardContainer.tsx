@@ -1,14 +1,14 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { PropertyCardContainer, RoommateCardContainer } from './';
-import { useState } from 'react';
 
-const MainCardContainer: React.FC = () => {
-  const [tabIndex, setTabIndex] = useState(0)
-  const handleTabChange = (index) => {
-    setTabIndex(index);
-  }
+interface MainCardContainerProps {
+  tabIndex: number,
+  handleTabChange: (index: number) => void
+} 
+
+const MainCardContainer: React.FC<MainCardContainerProps> = ({tabIndex, handleTabChange}) => {
   return (
-    <Tabs index={tabIndex} colorScheme="blue" isFitted variant="enclosed-colored" onChange={handleTabChange}>
+    <Tabs index={tabIndex} colorScheme={tabIndex === 0 ? "blue" : "green"} isFitted variant="enclosed-colored" onChange={handleTabChange}>
       <TabList>
         <Tab>Rooms</Tab>
         <Tab>Roommates</Tab>

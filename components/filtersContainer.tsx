@@ -11,7 +11,11 @@ import {
 import { BiFilter } from 'react-icons/bi';
 import Filters from './filters';
 
-const FiltersContainer: React.FC = () => {
+interface FiltersContainerProps {
+  tabIndex: number
+}
+
+const FiltersContainer: React.FC<FiltersContainerProps> = ({tabIndex}) => {
   const { isOpen, onOpen, onClose} = useDisclosure();
   return (
     <>
@@ -25,7 +29,7 @@ const FiltersContainer: React.FC = () => {
         bottom="3em"
         fontSize="1.5em"
         right="10vw"
-        colorScheme="green"
+        colorScheme={tabIndex === 0 ? "blue" : "green"}
         aria-label="open filters"
         onClick={onOpen}
         icon={<BiFilter/>}
