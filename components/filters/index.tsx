@@ -62,7 +62,6 @@ const Filters: React.FC<FiltersProps> = ({tabIndex}) => {
             <VStack spacing="1em">
               {filterTypes[tabIndex]}
               <Divider />
-              <pre>values: {JSON.stringify(values, null, 2)}</pre>
               <Button
                 w="100%"
                 colorScheme={tabIndex === 0 ? "blue" : "green"}
