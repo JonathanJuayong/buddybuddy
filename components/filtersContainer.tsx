@@ -45,7 +45,9 @@ const FiltersContainer: React.FC<FiltersContainerProps> = ({tabIndex}) => {
             <DrawerCloseButton />
             <DrawerHeader>Filters:</DrawerHeader>
             <DrawerBody>
-              <Filters />
+              <Filters
+                tabIndex={tabIndex}
+              />
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
