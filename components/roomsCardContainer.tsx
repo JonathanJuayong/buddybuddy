@@ -1,5 +1,5 @@
 import { Grid, Text } from "@chakra-ui/react"
-import PropertyCard from "./roomsCard"
+import RoomsCard from "./roomsCard"
 import { properties } from '../dummyData';
 import { useContext } from 'react';
 import { GlobalContext } from './context';
@@ -16,7 +16,7 @@ const RoomsCardContainer: React.FC = () => {
       py="2em"
     >
       {filtered.length !== 0 ? filtered.map(property => (
-        <PropertyCard
+        <RoomsCard
           key={property.id}
           id={`${property.id}`}
           imageUrl={property.imageUrl}
