@@ -1,31 +1,38 @@
+import { number } from "yup/lib/locale";
+
 export interface DefaultState {
   filters: {
-    city: string;
-    rent: {
+    rooms: {
+      city: string;
+      rent: {
         min: number,
         max: number,
-    },
-    rooms: {
-        bedrooms: number,
-        bathrooms: number,
-        tenants: number,
-        withUtilities: boolean,
-        type: string,
+      },
+      bedrooms: number,
+      bathrooms: number,
+      tenants: number,
+      withUtilities: boolean,
+      type: string,
     },
     roommates: {
-        gender: string,
+      preferredLocation: string,
+      budget: {
+        min: number,
+        max: number,
+      }
+      gender: string,
     },
   }
 }
 
 export const defaultState: DefaultState = {
   filters: {
-    city: "",
-    rent: {
-      min: 10000,
-      max: 50000,
-    },
     rooms: {
+      city: "",
+      rent: {
+        min: 10000,
+        max: 50000,
+      },
       bedrooms: 1,
       bathrooms: 1,
       tenants: 1,
@@ -33,6 +40,11 @@ export const defaultState: DefaultState = {
       type: "",
     },
     roommates: {
+      preferredLocation: "",
+      budget: {
+        min: 10000,
+        max: 50000
+      },
       gender: "",
     }
   }
