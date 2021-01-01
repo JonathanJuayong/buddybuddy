@@ -1,9 +1,9 @@
 import { Grid, Text } from '@chakra-ui/react';
-import RoommateCard from './roommateCard';
+import RoommateCard from './roommatesCard';
 import { useFetch } from '../utils';
 import { useEffect, useState } from 'react';
 
-const RoommateCardContainer: React.FC = () => {
+const RoommatesCardContainer: React.FC = () => {
   const [users, setUsers] = useState([])
   const {data, error, loading} = useFetch('https://randomuser.me/api/?results=15');
   useEffect(() => {
@@ -37,4 +37,4 @@ const RoommateCardContainer: React.FC = () => {
   )
 }
 
-export { RoommateCardContainer };
+export { RoommatesCardContainer };

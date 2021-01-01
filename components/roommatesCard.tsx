@@ -3,7 +3,7 @@ import { capitalize } from "../utils";
 import { GoPrimitiveDot } from 'react-icons/go';
 import { BiMoney } from 'react-icons/bi';
 
-interface RoommateCardProps {
+interface RoommatesCardProps {
   name: string,
   age: number,
   gender: string,
@@ -13,7 +13,7 @@ interface RoommateCardProps {
   bioSnippet: string
 }
 
-const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl, budget, preferredLocation, bioSnippet}) => {
+const RoommatesCard: React.FC<RoommatesCardProps> = ({name, age, gender, imageUrl, budget, preferredLocation, bioSnippet}) => {
   return (
     <VStack
       color="grey"
@@ -85,4 +85,4 @@ const RoommateCard: React.FC<RoommateCardProps> = ({name, age, gender, imageUrl,
   )
 }
 
-export default RoommateCard;
+export default RoommatesCard;
