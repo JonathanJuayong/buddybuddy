@@ -18,19 +18,19 @@ const RoommatesFilter: React.FC = () => {
     <>
       <MyCustomSelect
         name="roommates.preferredLocation"
-        label="City"
+        label="Preferred Location"
         options={cityOptions}
       />
       <HStack>
         <MyCustomNumberInput
           name="roommates.budget.min"
-          label="Min Rent"
+          label="Min Budget"
           min={1}
           max={299999}
         />
         <MyCustomNumberInput
           name="roommates.budget.max"
-          label="Max Rent"
+          label="Max Budget"
           min={1}
           max={300000}
         />
