@@ -25,8 +25,11 @@ const validationSchema = yup.object({
   })
 })
 
-const Filters: React.FC = () => {
-  const {filters: initialValues} = defaultState;
+interface FiltersProps {
+  tabIndex: number
+}
+
+const Filters: React.FC<FiltersProps> = ({tabIndex}) => {
   const {context, setContext} = useContext(GlobalContext);
   const cityOptions: Array<SelectOptions> = [
     {label: "All", value: ""},
@@ -53,9 +56,56 @@ const Filters: React.FC = () => {
       filters: {...values}
     }))
   }
+  const filterTypes: Array<JSX.Element> = [
+    (
+      <>
+        <Box alignSelf="start">
+          <Field name="rooms.withUtilities">
+            {({field}) => (
+              <Checkbox {...field}>With Utilities</Checkbox>
+            )}
+          </Field>
+        </Box>
+        <HStack>
+          <MyCustomNumberInput
+            name="rooms.bedrooms"
+            label="Bedrooms"
+            min={1}
+            max={99}
+          />
+          <MyCustomNumberInput
+            name="rooms.bathrooms"
+            label="Bedrooms"
+            min={1}
+            max={99}
+          />
+          <MyCustomNumberInput
+            name="rooms.tenants"
+            label="Tenants"
+            min={1}
+            max={99}
+          />
+        </HStack>
+        <MyCustomSelect
+          name="rooms.type"
+          label="Room type"
+          options={roomTypes}
+        />
+      </>
+    ),
+    (
+      <>
+        <MyCustomSelect
+          name="roommates.gender"
+          label="Gender"
+          options={genders}
+        />
+      </>
+    )
+  ]
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={context.filters}
       validationSchema={validationSchema}
       onSubmit={handleSubmitFilter}
     >
@@ -82,47 +132,11 @@ const Filters: React.FC = () => {
                   max={300000}
                 />
               </HStack>
-              <Box alignSelf="start">
-                <Field name="rooms.withUtilities">
-                  {({field}) => (
-                    <Checkbox {...field}>With Utilities</Checkbox>
-                  )}
-                </Field>
-              </Box>
-              <HStack>
-                <MyCustomNumberInput
-                  name="rooms.bedrooms"
-                  label="Bedrooms"
-                  min={1}
-                  max={99}
-                />
-                <MyCustomNumberInput
-                  name="rooms.bathrooms"
-                  label="Bedrooms"
-                  min={1}
-                  max={99}
-                />
-                <MyCustomNumberInput
-                  name="rooms.tenants"
-                  label="Tenants"
-                  min={1}
-                  max={99}
-                />
-              </HStack>
-              <MyCustomSelect
-                name="rooms.type"
-                label="Room type"
-                options={roomTypes}
-              />
-              <MyCustomSelect
-                name="roommates.gender"
-                label="Gender"
-                options={genders}
-              />
+              {filterTypes[tabIndex]}
               <Divider />
               <Button
                 w="100%"
-                colorScheme="blue"
+                colorScheme={tabIndex === 0 ? "blue" : "green"}
                 type="submit"
               >
                 Search
