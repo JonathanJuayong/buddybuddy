@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Find your next roommate | BuddyBuddy</title>
+        <title>Find your next roommate | BuddyBuddy.com</title>
       </Head>
       <Container
         maxW="6xl"
